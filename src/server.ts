@@ -54,19 +54,7 @@ function cleanInactiveUsers(server: any) {
 }
 
 const server = Bun.serve<{ id: string }>({
-    port: process.env.PORT || 4000,
     fetch(req, server) {
-        // Add CORS headers to allow connections from any origin
-        if (req.method === 'OPTIONS') {
-            return new Response(null, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type'
-                }
-            });
-        }
-
         username.sort(() => Math.random() - 0.5);
         if (server.upgrade(req, {
             data: { username: username.shift() }
@@ -154,4 +142,4 @@ const server = Bun.serve<{ id: string }>({
 });
 
 setInterval(() => cleanInactiveUsers(server), CLEANUP_INTERVAL);
-console.log(`WebSocket server running on ${process.env.PORT ? 'port ' + process.env.PORT : 'ws://localhost:4000'}`);
+console.log(`WebSocket server running`);
