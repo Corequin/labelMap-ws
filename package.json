@@ -1,0 +1,21 @@
+{
+  "name": "labelmap-websocket-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for LabelMap",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun src/server.ts",
+    "dev": "bun --watch src/server.ts"
+  },
+  "dependencies": {
+    "bun": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
